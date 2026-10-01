@@ -1,0 +1,50 @@
+---
+const servicios = [
+  {
+    img: "/img/servicio-1.png",
+    alt: "Desarrollo de habilidades",
+    title: "Desarrollo de habilidades",
+    subtitle: "para el aprendizaje",
+    text: "Desarrollo de estar a nivel para aprender, personajes y actividades",
+  },
+  {
+    img: "/img/servicio-2.png",
+    alt: "Necesidades educativas especiales",
+    title: "Necesidades educativas especiales",
+    text: "Educación infantil en altas escuelas necesidades educativas especiales",
+  },
+  {
+    img: "/img/servicio-3.png",
+    alt: "Lecto-escritura",
+    title: "Lecto-escritura",
+    text: "Educar a un niño en el compromiso de aprendizaje",
+  },
+  {
+    img: "/img/servicio-4.png",
+    alt: "Desarrollo de habilidades sociales",
+    title: "Desarrollo de habilidades sociales",
+    text: "Identificá los rasgos de los comportamientos sociales.",
+  },
+];
+---
+
+<section id="servicios" class="px-[5%] pb-16 pt-12 text-center">
+  <h2 class="mb-8 text-[0.95rem] font-medium tracking-[0.25em]">SERVICIOS</h2>
+
+  <div class="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 min-[401px]:grid-cols-2 min-[901px]:grid-cols-4">
+    {
+      servicios.map((s) => (
+        <article class="flex flex-col items-center rounded-[20px] px-2 py-4 transition-transform duration-300 hover:-translate-y-1.5">
+          <div class="mb-4 size-[100px] overflow-hidden rounded-full bg-white shadow-card sm:size-[120px]">
+            <img src={s.img} alt={s.alt} class="size-full object-cover" />
+          </div>
+          <h3 class="mb-[0.6rem] text-[0.95rem] font-semibold leading-[1.3]">
+            {s.title}
+            {s.subtitle && <span class="block font-medium">{s.subtitle}</span>}
+          </h3>
+          <p class="max-w-[220px] text-[0.8rem] text-soft">{s.text}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
