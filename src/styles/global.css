@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* ===== VARIABLES (equivalen a :root del CSS original) ===== */
 @theme {
   --color-bg: #fffbf9;
   --color-ink: #2b2b2b;
@@ -22,7 +21,6 @@
   html {
     @apply scroll-smooth scroll-pt-20;
   }
-
   body {
     @apply bg-bg font-sans leading-normal text-ink antialiased;
   }
