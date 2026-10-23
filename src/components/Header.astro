@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
@@ -10,7 +11,7 @@ const links = [
 ---
 
 <header
-  class="sticky top-0 z-[100] flex items-center justify-between gap-4 bg-bg/90 px-[5%] py-[0.8rem] backdrop-blur-sm max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-2"
+  class="sticky top-0 z-[100] flex items-center justify-between gap-4 bg-bg/90 text-ink px-[5%] py-[0.8rem] backdrop-blur-sm transition-colors duration-300 max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-2"
 >
   <a href="#inicio" class="flex shrink-0 items-center">
     <img src="/logo.png" alt="Kone's" class="h-[75px] w-[200px] object-contain" />
@@ -21,7 +22,7 @@ const links = [
       links.map((link) => (
         <a
           href={link.href}
-          class="relative text-[0.85rem] font-medium transition-colors duration-200 hover:text-brand-dark after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-sm after:bg-brand after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full"
+          class="relative text-[0.85rem] font-medium text-ink dark:text-white transition-colors duration-200 hover:text-brand-dark after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-sm after:bg-brand after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full"
         >
           {link.label}
         </a>
@@ -29,7 +30,11 @@ const links = [
     }
   </nav>
 
-  <Button href="#agendar" class="!px-[1.3rem] !py-[0.55rem] !text-[0.85rem]">
-    Agendar cita
-  </Button>
+  <div class="flex items-center gap-3">
+    <Button href="/form" class="!px-[1.3rem] !py-[0.55rem] !text-[0.85rem]">
+      Agendar cita
+    </Button>
+
+    <ThemeToggle />
+  </div>
 </header>

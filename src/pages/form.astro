@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro"; 
+---
+
+<Layout>
+  <form class="max-w-md mx-auto my-8 p-8 bg-white rounded-3xl shadow-lg border border-gray-100 flex flex-col gap-5">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">
+      Agendar una cita
+    </h2>
+
+    <!-- Nombre del tutor -->
+    <div class="flex flex-col gap-1.5">
+      <label class="text-sm font-semibold text-gray-700">Nombre del tutor</label>
+      <input 
+        type="text" 
+        placeholder="Ej. María López" 
+        class="w-full px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+      />
+    </div>
+
+    <!-- Nombre del niño o niña -->
+    <div class="flex flex-col gap-1.5">
+      <label class="text-sm font-semibold text-gray-700">Nombre del niño o niña</label>
+      <input 
+        type="text" 
+        placeholder="Ej. Mateo" 
+        class="w-full px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+      />
+    </div>
+
+    <!-- Correo electrónico -->
+    <div class="flex flex-col gap-1.5">
+      <label class="text-sm font-semibold text-gray-700">Correo electrónico</label>
+      <input 
+        type="email" 
+        placeholder="ejemplo@correo.com" 
+        class="w-full px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+      />
+    </div>
+
+    <!-- Teléfono de contacto -->
+    <div class="flex flex-col gap-1.5">
+      <label class="text-sm font-semibold text-gray-700">Teléfono de contacto</label>
+      <input 
+        type="tel" 
+        placeholder="123 456 7890" 
+        class="w-full px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+      />
+    </div>
+    
+
+    <!-- Fecha de la cita -->
+    <div class="flex flex-col gap-1.5">
+      <label class="text-sm font-semibold text-gray-700">Fecha de la cita</label>
+      <input 
+        type="date" 
+        class="w-full px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+      />
+    </div>
+
+    <!-- Botón Submit -->
+    <button 
+      type="submit" 
+      class="mt-3 w-full py-3.5 px-6 bg-[#65D836] hover:bg-[#52c227] text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 text-center"
+    >
+      Solicitar cita
+    </button>
+  </form>
+</Layout>
+
+
+
+
+
+

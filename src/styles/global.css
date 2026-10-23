@@ -1,29 +1,34 @@
 @import "tailwindcss";
 
-/* ===== VARIABLES (equivalen a :root del CSS original) ===== */
-@theme {
+@variant dark (&:where(.dark, .dark *));
+
+/* 1. Define los valores de tus colores como variables CSS nativas */
+:root {
   --color-bg: #fffbf9;
+  --color-hero-end: #e2e8f0;
   --color-ink: #2b2b2b;
   --color-soft: #6b6b6b;
   --color-brand: #6fd13f;
   --color-brand-dark: #5bb92f;
   --color-pill: #eceff1;
-  --color-pill-dark: #e0e4e7;
-  --color-pink-soft: #fdecea;
-  --color-hero-end: #fff4f1;
-
-  --font-sans: "Poppins", "Quicksand", "Segoe UI", Arial, sans-serif;
-
-  --shadow-btn: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-@layer base {
-  html {
-    @apply scroll-smooth scroll-pt-20;
-  }
+/* 2. Sobrescribe los valores de las variables cuando exista la clase .dark */
+.dark {
+  --color-bg: #0f172a;       /* Cambia este color al tono oscuro que desees para el fondo */
+  --color-ink: #f8fafc;      /* Color del texto principal en modo oscuro */
+  --color-soft: #94a3b8;     /* Color del texto secundario en modo oscuro */
+  --color-brand: #6fd13f;
+  --color-brand-dark: #5bb92f;
+  --color-pill: #1e293b;     /* Fondo de contenedores/tarjetas en modo oscuro */
+}
 
-  body {
-    @apply bg-bg font-sans leading-normal text-ink antialiased;
-  }
+/* 3. Registra las variables en Tailwind v4 */
+@theme {
+  --color-bg: var(--color-bg);
+  --color-ink: var(--color-ink);
+  --color-soft: var(--color-soft);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-pill: var(--color-pill);
 }

@@ -1,0 +1,49 @@
+---
+// src/components/ThemeToggle.astro
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  role="switch"
+  aria-checked="false"
+  aria-label="Toggle dark mode"
+  class="relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-300 dark:bg-indigo-600"
+>
+  <span
+    id="toggle-circle"
+    class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0 dark:translate-x-7"
+  ></span>
+</button>
+
+<script is:inline>
+  const themeToggle = document.getElementById('theme-toggle');
+
+  const getInitialTheme = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      themeToggle?.setAttribute('aria-checked', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      themeToggle?.setAttribute('aria-checked', 'false');
+    }
+  };
+
+  const currentTheme = getInitialTheme();
+  applyTheme(currentTheme);
+
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    const newTheme = isDark ? 'light' : 'dark';
+    
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  });
+</script>
