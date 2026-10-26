@@ -1,34 +1,57 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* 1. Define los valores de tus colores como variables CSS nativas */
+/* Valores crudos (cambian según el tema) */
 :root {
-  --color-bg: #fffbf9;
-  --color-hero-end: #e2e8f0;
-  --color-ink: #2b2b2b;
-  --color-soft: #6b6b6b;
-  --color-brand: #6fd13f;
-  --color-brand-dark: #5bb92f;
-  --color-pill: #eceff1;
+  color-scheme: light;
+  --bg: #fffbf9;
+  --hero-end: #e2e8f0;
+  --ink: #2b2b2b;
+  --soft: #6b6b6b;
+  --pill: #eceff1;
+  --pill-hover: #dfe3e6;
+  --card: #ffffff;
+  --field: #f9fafb;
+  --line: #e5e7eb;
 }
 
-/* 2. Sobrescribe los valores de las variables cuando exista la clase .dark */
 .dark {
-  --color-bg: #0f172a;       /* Cambia este color al tono oscuro que desees para el fondo */
-  --color-ink: #f8fafc;      /* Color del texto principal en modo oscuro */
-  --color-soft: #94a3b8;     /* Color del texto secundario en modo oscuro */
-  --color-brand: #6fd13f;
-  --color-brand-dark: #5bb92f;
-  --color-pill: #1e293b;     /* Fondo de contenedores/tarjetas en modo oscuro */
+  color-scheme: dark;
+  --bg: #0f172a;
+  --hero-end: #1e293b;
+  --ink: #f8fafc;
+  --soft: #94a3b8;
+  --pill: #1e293b;
+  --pill-hover: #334155;
+  --card: #1e293b;
+  --field: #334155;
+  --line: #475569;
 }
 
-/* 3. Registra las variables en Tailwind v4 */
-@theme {
-  --color-bg: var(--color-bg);
-  --color-ink: var(--color-ink);
-  --color-soft: var(--color-soft);
-  --color-brand: var(--color-brand);
-  --color-brand-dark: var(--color-brand-dark);
-  --color-pill: var(--color-pill);
+/* Tokens de Tailwind: "inline" evita la referencia circular */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-hero-end: var(--hero-end);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-pill: var(--pill);
+  --color-pill-hover: var(--pill-hover);
+  --color-card: var(--card);
+  --color-field: var(--field);
+  --color-line: var(--line);
+
+  /* Colores que no cambian entre temas */
+  --color-brand: #6fd13f;
+  --color-brand-dark: #5bb92f;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: 0 4px 14px rgb(0 0 0 / 0.08);
+  --shadow-btn: 0 6px 16px rgb(111 209 63 / 0.35);
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-ink transition-colors duration-300;
+  }
 }
