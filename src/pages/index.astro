@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Servicios from "../components/Servicios.astro";
+import Instalaciones from "../components/Instalaciones.astro";
+import Activitys from "../components/Activitys.astro";
 ---
 
 <Layout title="Kone's">
@@ -11,10 +13,12 @@ import Servicios from "../components/Servicios.astro";
   <main>
     <Hero />
     <Servicios />
+    <Instalaciones />
+    <Activitys />
 
     <!-- SECCIONES PENDIENTES (anclas del menú) -->
-    <section id="instalaciones" class="min-h-10"></section>
+    <!-- <section id="instalaciones" class="min-h-10"></section>>
     <section id="actividades" class="min-h-10"></section>
-    <section id="agendar" class="min-h-10"></section>
+    <section id="agendar" class="min-h-10"></section>-->
   </main>
 </Layout>
