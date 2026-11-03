@@ -11,30 +11,101 @@ const links = [
 ---
 
 <header
-  class="sticky top-0 z-[100] flex items-center justify-between gap-4 bg-bg/90 text-ink px-[5%] py-[0.8rem] backdrop-blur-sm transition-colors duration-300 max-sm:flex-wrap max-sm:justify-center max-sm:gap-y-2"
+  id="site-header"
+  class="sticky top-0 z-100 bg-bg/90 px-[5%] py-2 text-ink backdrop-blur-sm transition-colors duration-300 md:py-[0.8rem]"
 >
-  <a href="/" class="flex shrink-0 items-center">
-    <img src="/logo.png" alt="Kone's" class="h-[75px] w-[200px] object-contain" />
-  </a>
+  <div class="flex items-center justify-between gap-4">
+    <a href="/" class="flex shrink-0 items-center">
+      <img
+        src="/logo.png"
+        alt="Kone's"
+        class="h-12 w-32.5 object-contain md:h-18.75 md:w-50"
+      />
+    </a>
 
-  <nav class="flex items-center gap-[1.8rem] max-sm:order-3 max-sm:w-full max-sm:justify-center max-sm:gap-[1.1rem]">
+    <nav class="hidden items-center gap-[1.8rem] md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="relative text-[0.85rem] font-medium text-ink transition-colors duration-200 hover:text-brand-dark after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-sm after:bg-brand after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <ThemeToggle />
+
+      <div class="hidden md:block">
+        <Button href="/form" class="px-[1.3rem]! py-[0.55rem]! text-[0.85rem]!">
+          Agendar cita
+        </Button>
+      </div>
+
+
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="inline-flex size-10 cursor-pointer items-center justify-center rounded-full text-ink transition-colors hover:bg-pill focus:outline-none focus-visible:ring-2 focus-visible:ring-brand md:hidden"
+      >
+        <svg id="icon-open" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="icon-close" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="mt-2 hidden flex-col gap-1 border-t border-line pt-3 pb-2 md:hidden"
+  >
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="relative text-[0.85rem] font-medium text-ink dark:text-white transition-colors duration-200 hover:text-brand-dark after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-sm after:bg-brand after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full"
+          class="rounded-xl px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-pill"
         >
           {link.label}
         </a>
       ))
     }
+    <Button href="/form" class="mt-2 w-full">Agendar cita</Button>
   </nav>
-
-  <div class="flex items-center gap-3">
-    <Button href="/form" class="!px-[1.3rem] !py-[0.55rem] !text-[0.85rem]">
-      Agendar cita
-    </Button>
-
-    <ThemeToggle />
-  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle("hidden", !open);
+    menu?.classList.toggle("flex", open);
+    iconOpen?.classList.toggle("hidden", open);
+    iconClose?.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  };
+
+  toggle?.addEventListener("click", () =>
+    setOpen(toggle.getAttribute("aria-expanded") !== "true")
+  );
+
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => setOpen(false))
+  );
+
+  matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+    if (e.matches) setOpen(false);
+  });
+</script>
