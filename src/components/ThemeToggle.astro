@@ -1,25 +1,29 @@
 ---
+import { Icon } from "astro-icon/components";
 ---
 
 <button
   id="theme-toggle"
   type="button"
-  role="switch"
-  aria-checked="false"
   aria-label="Cambiar a modo oscuro"
-  class="group relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-300 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand focus:outline-none aria-checked:bg-indigo-600"
+  title="Cambiar a modo oscuro"
+  class="inline-flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-pill focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
 >
-  <span
-    class="pointer-events-none inline-block size-6 translate-x-0 rounded-full bg-white shadow transition duration-200 group-aria-checked:translate-x-7"
-  ></span>
+  <Icon name="tabler:moon" class="size-5 dark:hidden" />
+  <Icon name="tabler:sun" class="hidden size-5 dark:block" />
 </button>
 
 <script is:inline>
   (() => {
     const btn = document.getElementById("theme-toggle");
     const root = document.documentElement;
-    const sync = () =>
-      btn?.setAttribute("aria-checked", String(root.classList.contains("dark")));
+
+    const sync = () => {
+      const dark = root.classList.contains("dark");
+      const label = dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+      btn?.setAttribute("aria-label", label);
+      btn?.setAttribute("title", label);
+    };
 
     sync();
     btn?.addEventListener("click", () => {

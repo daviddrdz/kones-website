@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components";
 
 const socialLinks = [
-  { name: "Facebook", href: "https://facebook.com", icon: "lucide:facebook" },
-  { name: "Instagram", href: "https://instagram.com", icon: "lucide:instagram" },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: "lucide:linkedin" },
-  { name: "YouTube", href: "https://youtube.com", icon: "lucide:youtube" },
+  { name: "Facebook", href: "https://www.facebook.com/Konesmx", icon: "tabler:brand-facebook" },
+  { name: "Instagram", href: "https://www.instagram.com/konesmx", icon: "tabler:brand-instagram" },
+  { name: "X", href: "https://x.com/konesmx", icon: "tabler:brand-x" },
+  { name: "Pinterest", href: "https://www.pinterest.com/Konesmx/", icon: "tabler:brand-pinterest" },
 ];
 
 const navLinks = [
@@ -16,12 +16,12 @@ const navLinks = [
 ];
 ---
 
-<footer class="bg-bg text-text border-t border-black/5 px-[5%] pb-8 pt-12">
-  <div class="mx-auto flex max-w-275 flex-col gap-10 min-[769px]:flex-row min-[769px]:justify-between min-[769px]:items-start">
-    
+<footer class="bg-bg text-ink border-t border-line px-[5%] pb-8 pt-12">
+  <div class="mx-auto flex max-w-275 flex-col items-center gap-10 min-[769px]:flex-row min-[769px]:items-start min-[769px]:justify-between">
+
     <!-- Branding e Información -->
     <div class="flex flex-col items-center text-center min-[769px]:items-start min-[769px]:text-left max-w-75">
-      <h3 class="mb-3 text-[1.1rem] font-bold tracking-[0.1em] uppercase">
+      <h3 class="mb-3 text-[1.1rem] font-bold tracking-widest uppercase">
         KONE'S
       </h3>
       <p class="text-[0.85rem] text-soft leading-relaxed mb-4">
@@ -31,12 +31,12 @@ const navLinks = [
       <!-- Datos de contacto rápidos -->
       <ul class="flex flex-col gap-2 text-[0.8rem] text-soft">
         <li class="flex items-center gap-2 justify-center min-[769px]:justify-start">
-          <Icon name="lucide:mail" class="size-4 shrink-0" />
-          <span>contacto@tu-dominio.com</span>
+          <Icon name="tabler:mail" class="size-4 shrink-0" />
+          <span>contacto@kones.com.mx</span>
         </li>
         <li class="flex items-center gap-2 justify-center min-[769px]:justify-start">
-          <Icon name="lucide:phone" class="size-4 shrink-0" />
-          <span>+52 (55) 1234 5678</span>
+          <Icon name="tabler:phone" class="size-4 shrink-0" />
+          <span>+52 1 33 1872 9237</span>
         </li>
       </ul>
     </div>
@@ -74,8 +74,7 @@ const navLinks = [
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={social.name}
-              class="flex size-10 items-center justify-center rounded-full bg-white shadow-card transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              class="flex size-10 items-center justify-center rounded-full bg-card text-ink shadow-card transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"             aria-label={social.name}
             >
               <Icon name={social.icon} class="size-5" />
             </a>
@@ -90,3 +89,4 @@ const navLinks = [
     <p>© {new Date().getFullYear()} Kone's. Todos los derechos reservados.</p>
   </div>
 </footer>
+
