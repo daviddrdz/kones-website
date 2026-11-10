@@ -1,0 +1,61 @@
+---
+const clubs = [
+  {
+    id: "club",
+    title: "CLUB DE TAREAS Y REGULARIZACIÓN",
+    img: "/img/regu.png",
+    alt: "Logotipo del Club de tareas Kone's",
+    text: "El club de tareas y regularización Kone's tiene como objetivo apoyar a las niñas y niños de preescolar y primaria en la realización de su tarea escolar que más dificultad les presente, así como reforzar sus conocimientos de forma lúdica y de acuerdo a sus necesidades.",
+    reverse: false,
+  },
+  {
+    id: "ludoteca",
+    title: "LUDOTECA",
+    img: "/img/ludoteca-kones.png",
+    alt: "Logotipo de la Ludoteca Kone's",
+    text: "La ludoteca Kone's es un espacio donde los niños y las niñas aprenden mientras juegan y se divierten juntos con los diversos materiales lúdicos para trabajar el juego de roles, juego simbólico y actividades de la vida cotidiana. Además contamos con un área de lectura para que disfruten de sus libros favoritos.",
+    reverse: true,
+  },
+];
+---
+
+<section class="bg-bg px-[5%] pb-16 pt-12">
+  <div class="mx-auto flex max-w-275 flex-col gap-16">
+    {
+      clubs.map((c) => (
+        <article
+          id={c.id}
+          class:list={[
+            "flex scroll-mt-20 flex-col items-center gap-8 md:gap-12",
+            c.reverse ? "md:flex-row-reverse" : "md:flex-row",
+          ]}
+        >
+          <div class="size-40 shrink-0 overflow-hidden rounded-[20px] bg-white shadow-card md:size-48">
+            <img
+              src={c.img}
+              alt={c.alt}
+              loading="lazy"
+              class="size-full object-contain p-3"
+            />
+          </div>
+
+          <div
+            class:list={[
+              "flex flex-col items-center text-center",
+              c.reverse
+                ? "md:items-end md:text-right"
+                : "md:items-start md:text-left",
+            ]}
+          >
+            <h2 class="mb-6 text-[0.95rem] font-medium tracking-[0.25em]">
+              {c.title}
+            </h2>
+            <p class="max-w-150 text-[0.95rem] leading-relaxed text-soft">
+              {c.text}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
