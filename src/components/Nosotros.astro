@@ -1,0 +1,25 @@
+---
+const parrafos = [
+  "Somos un centro psicológico infantil orientado principalmente a la intervención psico-educativa y estimulación temprana. Nuestros servicios van dirigidos a bebés desde los 45 días de nacidos hasta niños y niñas de 12 años de edad, cuenten o no con un diagnóstico, así mismo con o sin necesidades educativas especiales.",
+  "Nuestro objetivo es atender a los bebés, niñas y niños de forma oportuna, dinámica y personalizada, tanto en los programas individuales como grupales, con el fin de desarrollar las habilidades y capacidades de cada uno de nuestros pacientes, respetando sus tiempos, estilos de aprendizaje y necesidades.",
+  "En Kone's creemos en el trabajo basado en tres pilares: la familia, escuela y otros profesionales; es por esto que trabajamos de forma interdisciplinaria, pues es fundamental para favorecer el crecimiento personal, académico y social de nuestros pacientes.",
+];
+---
+
+<section id="nosotros" class="scroll-mt-20 bg-linear-to-t from-bg to-hero-end px-[5%] pb-16 pt-12 text-center">
+  <div class="mx-auto max-w-275">
+    <h2 class="mb-8 text-[0.95rem] font-medium tracking-[0.25em]">
+      SOBRE NOSOTROS
+    </h2>
+
+    <div class="flex flex-col gap-6">
+      {
+        parrafos.map((p) => (
+          <p class="text-[0.95rem] leading-relaxed text-soft md:text-justify">
+            {p}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</section>
