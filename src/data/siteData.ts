@@ -1,8 +1,8 @@
 export const navLinks = [
   { name: 'Inicio', href: '/' },
   { name: 'Servicios', href: '#servicios' },
-  { name: 'Nosotros', href: '#nosotros' },
-  { name: 'Contacto', href: '#contacto' },
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Contacto', href: '/nosotros#contacto' },
 ];
 
 export const servicesData = [
