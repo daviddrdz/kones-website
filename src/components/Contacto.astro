@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 
+const { class: className = "bg-bg" } = Astro.props;
+
 const contactos = [
   {
     title: "Whatsapp",
@@ -28,7 +30,7 @@ const contactos = [
 ];
 ---
 
-<section id="contacto" class="scroll-mt-20 bg-bg px-[5%] pb-16 pt-8 text-center">
+<section id="contacto" class:list={["scroll-mt-20 px-[5%] pb-16 pt-8 text-center", className]}>
   <h2 class="mb-8 text-[0.95rem] font-medium tracking-[0.25em]">CONTACTO</h2>
 
   <div class="mx-auto grid max-w-275 grid-cols-1 gap-8 md:grid-cols-3">
